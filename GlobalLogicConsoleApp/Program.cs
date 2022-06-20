@@ -9,7 +9,7 @@ namespace GlobalLogicConsoleApp
             Console.WriteLine("Hello World!");
 
             ClassOperations operations = new ClassOperations();
-            int result1 = operations.Add(10, 10);
+            int result1 = operations.Add(10, 11);
             Console.WriteLine(result1.ToString());
     
 

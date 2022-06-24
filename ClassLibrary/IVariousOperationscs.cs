@@ -3,7 +3,7 @@
   no implementation inside
   implemented inside class/struct
   support Properties, methods, events, indexers
-  support multiple inheritance */
+  support multiple inheritance also*/
 
 namespace IVariousOperationscs
 {
@@ -22,7 +22,8 @@ namespace IVariousOperationscs
         int func3(int c);
     }
 
-    public partial interface IThreeInterface: IOneInterface
+    //Interfaces can inherit interfaces
+    public partial interface IThreeInterface: IOneInterface 
     {
         int func4(int d);
     }

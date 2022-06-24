@@ -91,6 +91,8 @@ namespace InheritanceLibrary
 
     }
 
+    //Structure can inherit Interfaaces
+    //Structure can't inherit other structure or classes
     public struct OneStructure : IOneInterface, IThreeInterface
     {
         int IOneInterface.func(int a)

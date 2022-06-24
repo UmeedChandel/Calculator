@@ -4,8 +4,13 @@ using System.Text;
 
 namespace structLiberary
 {
-    public struct Complex1  // no inheritance
+    public struct Complex1  
     {
+        // no inheritance
+        // struct to struct inheretance is prohibited
+        // struct can inherit interface
+        // but not classes
+
         public float Addition(float a, float b)
         {
             Console.Write("Adding Float: ");

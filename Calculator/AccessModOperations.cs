@@ -52,7 +52,7 @@ namespace AccessModifiers
         }
     }
 
-    public class AccessModOp3: ClassOperations
+    public class AccessModOp3
     {
         public int invoke2()
         {
@@ -64,8 +64,6 @@ namespace AccessModifiers
             obj.Operation4(20, 20, 20, 20); //internal
             obj.Operation5(20, 20); //protected internal
 
-            Console.WriteLine("Access Namespace B Class Func ");
-            this.Multiplication(5);
             return 0;
         }
     }

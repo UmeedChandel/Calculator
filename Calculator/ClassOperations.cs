@@ -5,6 +5,13 @@ namespace Calculator
 {
     public class ClassOperations
     {
+
+        public int amount { get; set; }
+        public ClassOperations(int amount)
+        {
+            this.amount = amount;
+
+        }
         public int Addition(int a)
         {
             int c = a + a;

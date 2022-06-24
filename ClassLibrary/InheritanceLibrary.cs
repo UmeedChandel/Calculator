@@ -1,7 +1,7 @@
 ﻿namespace InheritanceLibrary
 {
 
-    public class A
+    public class AA
     {
         public virtual int Divide(int a,int b)
         {
@@ -9,7 +9,7 @@
         }
     }
 
-    public class B : A
+    public class BB : AA
     {
         public override int Divide(int a, int b)
         {
@@ -24,7 +24,7 @@
 
     }
 
-    public class C : B
+    public class CC : BB
     {
         public override sealed int Divide(int a, int b)
         {
@@ -33,7 +33,7 @@
         //any other class after C can't cahnge Divide
     }
 
-    public class D : C
+    public class DD : CC
     {
         public void Method2()
         {

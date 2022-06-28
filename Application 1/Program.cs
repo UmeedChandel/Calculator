@@ -117,6 +117,7 @@ string t3 = "Data";
 /*complex + string -struct - enum
   reference types
   stored heap memory */
+
 Console.WriteLine("Structure =>");
 Complex1 structObject = new Complex1();
 Console.WriteLine(structObject.Addition(a1, 98.8f));
@@ -143,13 +144,17 @@ int result2 = delegateObj1(10, 4);
 Console.WriteLine(result);
 Console.WriteLine(result1);
 Console.WriteLine(result2);
+Console.WriteLine(delegateObj(10, 2));
+Console.WriteLine(delegateObj1(11, 2));
 
 Console.WriteLine(" ");
 Console.WriteLine("Delegate for return type VOID");
 ItsDelegate1 delegateObj2 = new ItsDelegate1(obj.Method);
 ItsDelegate1 delegateObj3 = new ItsDelegate1(Complex2.Method1);
-delegateObj2(1);
-delegateObj3(2);
+delegateObj2 += obj.Method;
+delegateObj3 += Complex2.Method1;
+delegateObj2(10);
+delegateObj3(20);
 
 /* Multicasting delegate
    storing more than one method reference
@@ -161,6 +166,7 @@ Console.WriteLine(" ");
 Console.WriteLine("Delegate Multicasting: ");
 
 //attaching your methods
+
 ItsDelegate1 delegateObj4 = new ItsDelegate1(obj.Method);
 delegateObj4 += obj.Method;
 delegateObj4 += Complex2.Method1;
@@ -168,6 +174,7 @@ delegateObj4 += obj.Method;
 delegateObj4 += Complex2.Method1;
 
 //deattach method
+
 //delegateObj4 -= obj.Method;
 //delegateObj4 -= obj.Method;
 delegateObj4 -= obj.Method;
@@ -176,13 +183,36 @@ delegateObj4 -= Complex2.Method1;
 
 delegateObj4(5);
 
-public class ComplexType2 // yes inheritance
+Console.WriteLine(" ");
+Console.WriteLine("Anonymous: ");
+
+/*don't have method name
+  can't be declared inside class
+  used along delegates */
+
+int num = 10;
+ItsDelegate delegateObject = delegate (int a, int b)
 {
+    return num - (a + b);
+};
+Console.WriteLine(delegateObject(30, 20));
 
-}
+delegateObject += delegate (int a, int b)
+{
+    return (a - b);
+};
 
-enum Complex3 { }
-public interface Complex4 { }
+Console.WriteLine(delegateObject(30, 20));
+Console.WriteLine(" ");
+
+Console.WriteLine("Enum");
+Complex3 emumObj = Complex3.Umeed;
+Console.WriteLine("Value : {0}",emumObj);
+
+ClassOne partialObject = new ClassOne();
+partialObject.SubtractMethod1(20, 10);//instance partial method, so called by object
+ClassOne.AddMethod1(10, 10);//static partial method, so called by class name
+
 
 
 

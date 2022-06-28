@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Calculator;
 
 namespace structLiberary
 {
@@ -55,6 +56,8 @@ namespace structLiberary
         }
     }
 
+    public enum Complex3 { Umeed, Palak, Aishwarya, Aman }
+
     /*DELEGATE
       reference type complex data type
       they are func/method pointer
@@ -64,4 +67,5 @@ namespace structLiberary
 
     public delegate int ItsDelegate(int exp1, int exp2);
     public delegate void ItsDelegate1(int exp1);
+
 }

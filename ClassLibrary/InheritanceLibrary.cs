@@ -57,7 +57,7 @@ namespace InheritanceLibrary
             return a * 10;
         }
 
-        
+
         public int func2(int b)
         {
             return b * 20;
@@ -74,14 +74,14 @@ namespace InheritanceLibrary
         }
     }
 
-    public class ClassTwo: ClassOne
+    public class ClassTwo : ClassOne
     {
         public int Test()
         {
             //this.func(1); //Can't access
             int Rfunc2 = this.func2(2);
-            int Rfunc3= this.func3(3);
-            int Rexfunc= this.extrafunc(4);
+            int Rfunc3 = this.func3(3);
+            int Rexfunc = this.extrafunc(4);
 
             Console.WriteLine("Rfunc2: {0}", Rfunc2);
             Console.WriteLine("Rfunc3: {0}", Rfunc3);
@@ -124,4 +124,28 @@ namespace InheritanceLibrary
         }
     }
 
+    public class Implementation : AbsOperations
+    {
+        //child class
+        //multiple abs class inheritace not supported
+        //override the abstract member in abs class
+        public override int AbsMethod1(int a)
+        {
+            return a * 10;
+        }
+
+        //override virtual method from base class
+        public override int Method3(int a)
+        {
+            return a * 30;
+
+        }
+
+        public int Method4(int a)
+        {
+            return a * 40;
+
+        }
+
+    }
 }

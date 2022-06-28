@@ -30,7 +30,7 @@ class Program
         Console.WriteLine(" ");
 
         Console.WriteLine("Interfaces =>");
-
+        Console.WriteLine(" ");
         //class object - instantiation
 
         Console.WriteLine("Class One: ");
@@ -40,28 +40,53 @@ class Program
         Console.WriteLine(obj6.extrafunc(1));
 
         //interface object - declaration
-
+        Console.WriteLine(" ");
         Console.WriteLine("Interface One: ");
         IOneInterface oneInterface = new ClassOne();
         Console.WriteLine(oneInterface.func(2));
+        Console.WriteLine(oneInterface.func1(2)); //interface member
+        Console.WriteLine(IOneInterface.func0(2)); //static interface member
 
+        Console.WriteLine(" ");
         Console.WriteLine("Interface Two: ");
         ITwoInterface twoInterface = new ClassOne();
         Console.WriteLine(twoInterface.func2(2));
         Console.WriteLine(twoInterface.func3(3));
 
+        Console.WriteLine(" ");
         Console.WriteLine("Class Two: ");
         ClassTwo obj7 = new ClassTwo();
         Console.WriteLine(obj7.Test());
 
+        Console.WriteLine(" ");
         Console.WriteLine("Structure One: ");
         OneStructure obj8 = new OneStructure();
         Console.WriteLine(obj8.func4(1000));
 
+        Console.WriteLine(" ");
         Console.WriteLine("Structure Two: ");
         TwoStructure obj9 = new TwoStructure();
         Console.WriteLine(obj9.func2(2));
         Console.WriteLine(obj9.func3(3));
+
+        Console.WriteLine(" ");
+        Console.WriteLine("Abstract Class:");
+        Console.WriteLine("Object  Child Class:");
+        Implementation absObj = new Implementation();
+        Console.WriteLine(absObj.AbsMethod1(10));
+        Console.WriteLine(absObj.Method2(20));
+        Console.WriteLine(absObj.Method3(30));
+        Console.WriteLine(absObj.Method4(40)); //can access
+
+
+        Console.WriteLine(" ");
+        Console.WriteLine("Object Abstract Class:");
+        AbsOperations absObj1 = new Implementation();
+        Console.WriteLine(absObj1.AbsMethod1(10));
+        Console.WriteLine(absObj1.Method2(20));
+        Console.WriteLine(absObj1.Method3(30));
+        //Console.WriteLine(absObj1.Method4(40)); //can't access
+
 
     }
 }

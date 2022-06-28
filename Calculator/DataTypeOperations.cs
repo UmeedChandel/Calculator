@@ -32,4 +32,36 @@ namespace structLiberary
             return c;
         }
     }
+
+    public class Complex2
+    {
+        public int AddMethod(int a, int b)
+        {
+            return a + b;
+        }
+
+        public int SubtractMethod(int a, int b)
+        {
+            return a - b;
+        }
+
+        public void Method(int a)
+        {
+            Console.WriteLine("Void Method 1st a: {0}", a);
+        }
+        public static void Method1(int a)
+        {
+            Console.WriteLine("Void Method 2nd b: {0}", a);
+        }
+    }
+
+    /*DELEGATE
+      reference type complex data type
+      they are func/method pointer
+      store your method address
+      method & delegate signature match
+      Delegates are type safe */
+
+    public delegate int ItsDelegate(int exp1, int exp2);
+    public delegate void ItsDelegate1(int exp1);
 }

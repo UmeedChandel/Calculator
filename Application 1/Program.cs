@@ -93,6 +93,9 @@ Console.WriteLine(" And Diya has {0}", Diya.amount);
 Console.WriteLine(" ");
 //c# data types
 
+//stack int i = 10;
+//heap A a = new A();
+
 /*primitive + struct + enum - string
   value types
   stored in stack memory */
@@ -114,21 +117,76 @@ string t3 = "Data";
 /*complex + string -struct - enum
   reference types
   stored heap memory */
-
+Console.WriteLine("Structure =>");
 Complex1 structObject = new Complex1();
 Console.WriteLine(structObject.Addition(a1, 98.8f));
 Console.WriteLine(structObject.Subtract(b1, 23.32));
 Console.WriteLine(structObject.Multiply(c1, 2334.2m));
-public class Complex2 // yes inheritance
+
+/*Steps
+  1. delegate declaration
+  2. method definition
+  3. delegate object
+  4. delegate invocation */
+
+Console.WriteLine(" ");
+Console.WriteLine("Delegate Object =>");
+Complex2 obj = new Complex2();
+ItsDelegate delegateObj = new ItsDelegate(obj.AddMethod);
+ItsDelegate delegateObj1 = new ItsDelegate(obj.SubtractMethod);
+
+Console.WriteLine(" ");
+Console.WriteLine("Delegate for return type INT");
+int result = delegateObj.Invoke(10, 10);
+int result1 = delegateObj(10, 5);
+int result2 = delegateObj1(10, 4);
+Console.WriteLine(result);
+Console.WriteLine(result1);
+Console.WriteLine(result2);
+
+Console.WriteLine(" ");
+Console.WriteLine("Delegate for return type VOID");
+ItsDelegate1 delegateObj2 = new ItsDelegate1(obj.Method);
+ItsDelegate1 delegateObj3 = new ItsDelegate1(Complex2.Method1);
+delegateObj2(1);
+delegateObj3(2);
+
+/* Multicasting delegate
+   storing more than one method reference
+   void method -> directly write on console
+   other return type multicast result get override thus
+   switch to void to avoid override */
+
+Console.WriteLine(" ");
+Console.WriteLine("Delegate Multicasting: ");
+
+//attaching your methods
+ItsDelegate1 delegateObj4 = new ItsDelegate1(obj.Method);
+delegateObj4 += obj.Method;
+delegateObj4 += Complex2.Method1;
+delegateObj4 += obj.Method;
+delegateObj4 += Complex2.Method1;
+
+//deattach method
+//delegateObj4 -= obj.Method;
+//delegateObj4 -= obj.Method;
+delegateObj4 -= obj.Method;
+//delegateObj4 -= Complex2.Method1;
+delegateObj4 -= Complex2.Method1;
+
+delegateObj4(5);
+
+public class ComplexType2 // yes inheritance
 {
 
-} 
+}
+
 enum Complex3 { }
 public interface Complex4 { }
 
-//public delegate int Comples5{ int exp1, int exp2};
-//stack int i = 10;
-//heap A a = new A();
+
+
+
 
 
 

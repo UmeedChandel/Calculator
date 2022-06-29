@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Calculator\Calculator.csproj" />
+    <ProjectReference Include="..\ClassLibrary 2\ClassLibrary 2.csproj" />
   </ItemGroup>
 
 </Project>

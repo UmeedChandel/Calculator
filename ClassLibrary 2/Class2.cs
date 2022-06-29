@@ -10,5 +10,12 @@
         {
             return a - b;
         }
+        public void Extra()
+        {
+            Console.WriteLine("Okay! ");
+        }
     }
+
+    public delegate int OpDelegate(int a, int b);
+    public delegate void OpDelegate1();
 }

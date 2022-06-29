@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using structLiberary;
 using Calculator;
+using ClassLibrary;
 
 //LOOPS
 
@@ -209,10 +210,14 @@ Console.WriteLine("Enum");
 Complex3 emumObj = Complex3.Umeed;
 Console.WriteLine("Value : {0}",emumObj);
 
-ClassOne partialObject = new ClassOne();
-partialObject.SubtractMethod1(20, 10);//instance partial method, so called by object
-ClassOne.AddMethod1(10, 10);//static partial method, so called by class name
 
+// Can be reused anywhere 
+// using namespace reference
+Console.WriteLine(" ");
+Console.WriteLine("Extension Method: ");
+
+int var = 9;
+Console.WriteLine(var.Table());
 
 
 

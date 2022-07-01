@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application 1", "Application 1\Application 1.csproj", "{41D4FFD9-0534-4D89-AB8E-F45897693FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary 2", "ClassLibrary 2\ClassLibrary 2.csproj", "{6F4A988A-CD8C-4BF1-AD79-6D529ACF4C6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary 2", "ClassLibrary 2\ClassLibrary 2.csproj", "{6F4A988A-CD8C-4BF1-AD79-6D529ACF4C6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application 2", "Application 2\Application 2.csproj", "{DBF61863-ADA2-4319-A29A-BB012CAC21C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application 2", "Application 2\Application 2.csproj", "{DBF61863-ADA2-4319-A29A-BB012CAC21C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application 3", "Application 3\Application 3.csproj", "{02D814A2-E63D-4254-A072-284ABBA0753F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{DBF61863-ADA2-4319-A29A-BB012CAC21C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBF61863-ADA2-4319-A29A-BB012CAC21C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF61863-ADA2-4319-A29A-BB012CAC21C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D814A2-E63D-4254-A072-284ABBA0753F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D814A2-E63D-4254-A072-284ABBA0753F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D814A2-E63D-4254-A072-284ABBA0753F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D814A2-E63D-4254-A072-284ABBA0753F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

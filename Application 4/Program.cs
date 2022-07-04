@@ -2,13 +2,27 @@
 Declaration needs initalization
 built-in, user-defined, anonymous type */
 
+//var check during compilation
+//dynamic check during run time
+//DLR (Dynamic Lang Runtime)on top of CLR
+
+Console.WriteLine("Dynamic Keyword: ");
+dynamic day = 11;
+//dynamic day = "Monday";
+dynamic balance = 19837982.320;
+
+//Console.WriteLine("The dynamic {0} is {1} type", day, day.GetType());
+Console.WriteLine("The dynamic {0} is {1} type", day, day.GetType());
+Console.WriteLine("The dynamic {0} is {1} type", balance, balance.GetType());
+Console.WriteLine(" ");
+
 var count = 10;
-var day = "Friday";
-var balance = 19837982.320;
+var day1 = "Friday";
+var balance1 = 19837982.320;
 
 Console.WriteLine("The var {0} is {1} type", count, count.GetType().ToString());
-Console.WriteLine("The var {0} is {1} type", day, day.GetType().ToString());
-Console.WriteLine("The var {0} is {1} type", balance, balance.GetType().ToString());
+Console.WriteLine("The var {0} is {1} type", day1, day1.GetType().ToString());
+Console.WriteLine("The var {0} is {1} type", balance1, balance1.GetType().ToString());
 Console.WriteLine(" ");
 
 for (var x = 0; x < 4; x++)

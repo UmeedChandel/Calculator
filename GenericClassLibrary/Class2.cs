@@ -19,9 +19,24 @@ namespace GenericClassLibrary
         Reference Type- Where T:class */
 
 
-    public class GenForBaseClassType<T> where T : Product
-    { 
-     
+    public class GenForBaseClassType<T> where T : Car
+    {
+        Stack<T> stack = new Stack<T>();
+
+        public void Add(T element)
+        {
+            stack.Push(element);
+        }
+
+        public T GetElement()
+        {
+            return stack.Peek();
+        }
+
+        public void Delete()
+        {
+            stack.Pop();
+        }
     }
     public class GenForInterfaceType<T> where T : IProduct
     {
@@ -72,6 +87,7 @@ namespace GenericClassLibrary
 
     public class Car : Product
     {
+        public string carColor { get; set; }
         public override void Method3()
         {
             Console.WriteLine("Car works fine!");
@@ -120,6 +136,12 @@ namespace GenericClassLibrary
         public T GetElement(int index)
         {
             return myArray.ElementAt(index);
+        }
+
+        public void topHeighest()
+        {
+            myArray.Sort();
+            myArray.Reverse();
         }
 
         public int GetLength()

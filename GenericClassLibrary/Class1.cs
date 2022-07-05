@@ -90,4 +90,27 @@ namespace GenericClassLibrary
             Console.WriteLine("Value z: " + z.ToString());
         }
     }
+
+    //where T : class //error of <int>
+    //where T : new() //error for <string>
+    public class MyGenLinkedCollection<T> 
+    {
+        LinkedList<T> list = new LinkedList<T>();
+
+        public void Add(T element)
+        {
+            list.AddLast(element);
+        }
+        public void Remove()
+        {
+            list.Remove(list.First);
+        }
+        public void GetAllElement()
+        {
+            foreach (dynamic i in list)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
 }

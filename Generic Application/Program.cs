@@ -1,5 +1,8 @@
 ﻿using GenericClassLibrary;
 using System.Collections.Generic;
+using System.Collections;
+using Aardvark.Base;
+using System;
 
 class Program
 {
@@ -28,7 +31,7 @@ class Program
 
         //Generic object along with constraints
 
-        GenForBaseClassType<Product> productVersionOfGen = new GenForBaseClassType<Product>(); ;
+        GenForBaseClassType<Car> productVersionOfGen = new GenForBaseClassType<Car>(); ;
 
         GenForInterfaceType<IProduct> genForInterfaceType = new GenForInterfaceType<IProduct>();
         GenForContructorType<Car> carVersionOfGen = new GenForContructorType<Car>();
@@ -43,14 +46,18 @@ class Program
 
 
         //Generic Algorithms
-
+        Console.WriteLine(" ");
         Console.WriteLine("String Stack: ");
         Stack<string> strStack = new Stack<string>();
         strStack.Push("Last");
         strStack.Push("Mid");
         strStack.Push("Top");
-        Console.WriteLine(strStack.Peek());
+        foreach (var i in strStack)
+        {
+            Console.WriteLine(i);
+        }
 
+        Console.WriteLine(" ");
         Console.WriteLine("Int Stack: ");
         Stack<int> intStack = new Stack<int>();
         intStack.Push(10);
@@ -58,24 +65,41 @@ class Program
         intStack.Push(30);
         Console.WriteLine(intStack.Peek());
 
-        Console.WriteLine("Int Queue: ");
+        Console.WriteLine(" ");
+        Console.WriteLine("Generic Queue: ");
         Queue<int> intQueue = new Queue<int>();
         intQueue.Enqueue(10);
         intQueue.Enqueue(20);
         Console.WriteLine(intQueue.Peek());
 
-        LinkedList<int> list = new LinkedList<int>();
-        list.AddFirst(1);
+        Console.WriteLine(" ");
+        Console.WriteLine("Non Generic Queue: ");
+        Queue queue = new Queue();
+        queue.Enqueue(10);
+        queue.Enqueue("GL");
+        queue.Enqueue(1);
+        queue.Enqueue(100);
+        queue.Enqueue(2.4);
+        queue.Enqueue(20);
+        foreach (var i in queue)
+        {
+            Console.WriteLine(i);
+        }
 
-        Console.WriteLine("Collection: ");
+        Console.WriteLine(" ");
+        Console.WriteLine("Collection LIST: ");
 
         MyGenCollection<int> intCollection = new MyGenCollection<int>();
         intCollection.Add(10);
-        intCollection.Add(20);
-        int indexZeroElement = intCollection.GetElement(0);
-        Console.WriteLine(indexZeroElement);
-        int Length = intCollection.GetLength();
-        Console.WriteLine(Length);
+        intCollection.Add(25);
+        intCollection.Add(5);
+        intCollection.Add(87);
+        intCollection.Add(3);
+        intCollection.Add(50);
+        intCollection.topHeighest();
+        int topthirdelement = intCollection.GetElement(2);
+        Console.WriteLine("Top Third Element: ");
+        Console.WriteLine(topthirdelement);
 
         MyGenCollection<Student1> studentCollection = new MyGenCollection<Student1>();
         studentCollection.Add(new Student1 { firstName = "Umeed" });
@@ -85,15 +109,44 @@ class Program
         Console.WriteLine(student.lastName);
 
         MyGenCollection<Student2> studentCollection1 = new MyGenCollection<Student2>();
+        studentCollection1.Add(new Student2());
 
         MyGenCollection<Employee> studentCollection2 = new MyGenCollection<Employee>();
         studentCollection2.Add(new Employee());
-        //studentCollection2.Add(new Student()); //compile time type checking
 
 
+        Console.WriteLine("Collection Linked LIST: ");
 
+        MyGenLinkedCollection<int> LinkedCollection = new MyGenLinkedCollection<int>();
+        LinkedCollection.Add(10);
+        LinkedCollection.Add(25);
+        LinkedCollection.GetAllElement();
+        Console.WriteLine(" ");
 
+        MyGenLinkedCollection<string> LinkedCollection1 = new MyGenLinkedCollection<string>();
+        LinkedCollection1.Add("My");
+        LinkedCollection1.Add("Name");
+        LinkedCollection1.Add("is");
+        LinkedCollection1.Add("LinkedCollection");
+        LinkedCollection1.GetAllElement();
+        Console.WriteLine(" ");
+        Console.WriteLine("Removed 1st element");
+        LinkedCollection1.Remove();
+        LinkedCollection1.GetAllElement();
 
+        MyGenLinkedCollection<Employee> LinkedCollection2 = new MyGenLinkedCollection<Employee>();
+        LinkedCollection2.Add(new Employee());
 
+        Console.WriteLine(" ");
+        Console.WriteLine("Collection Stack: ");
+        GenForBaseClassType<Car> stackCollection = new GenForBaseClassType<Car>();
+        stackCollection.Add(new Car { carColor = "Red" });
+        stackCollection.Add(new Car { carColor = "Blue" });
+        stackCollection.Add(new Car { carColor = "Green" });
+        var car = stackCollection.GetElement();
+        Console.WriteLine(car.carColor);
     }
+
+    
+
 }

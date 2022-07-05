@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aardvark.Base.FSharp" Version="5.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GenericClassLibrary\GenericClassLibrary.csproj" />
   </ItemGroup>
 

@@ -146,7 +146,4 @@ class Program
         var car = stackCollection.GetElement();
         Console.WriteLine(car.carColor);
     }
-
-    
-
 }

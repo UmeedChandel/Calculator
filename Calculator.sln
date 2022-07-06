@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application 3", "Applicatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application 4", "Application 4\Application 4.csproj", "{AF825632-6284-4192-899D-05789191598A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericClassLibrary", "GenericClassLibrary\GenericClassLibrary.csproj", "{925B493F-5EC6-47D8-86FB-F90979ED9D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericClassLibrary", "GenericClassLibrary\GenericClassLibrary.csproj", "{925B493F-5EC6-47D8-86FB-F90979ED9D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic Application", "Generic Application\Generic Application.csproj", "{A427A01C-EE9B-4695-865E-5B38EAA664F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generic Application", "Generic Application\Generic Application.csproj", "{A427A01C-EE9B-4695-865E-5B38EAA664F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericOverview", "GenericOverview\GenericOverview.csproj", "{88C7FB13-AC2A-4DE0-BEDA-9251B36E7FDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{A427A01C-EE9B-4695-865E-5B38EAA664F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A427A01C-EE9B-4695-865E-5B38EAA664F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A427A01C-EE9B-4695-865E-5B38EAA664F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C7FB13-AC2A-4DE0-BEDA-9251B36E7FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C7FB13-AC2A-4DE0-BEDA-9251B36E7FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C7FB13-AC2A-4DE0-BEDA-9251B36E7FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C7FB13-AC2A-4DE0-BEDA-9251B36E7FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

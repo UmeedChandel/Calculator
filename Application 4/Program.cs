@@ -95,9 +95,9 @@ var anonymousType3 = new[]
     }
 };
 
-for(int i = 0; i < anonymousType3.Length; i++)
+for (int t = 0; t < anonymousType3.Length; t++)
 {
-    Console.WriteLine("Name {0} : {1} {2}",i,anonymousType3[i].firstname, anonymousType3[i].lastname);
+    Console.WriteLine("Name {0} : {1} {2}", t, anonymousType3[t].firstname, anonymousType3[t].lastname);
 }
 Console.WriteLine(anonymousType2.GetType().ToString());
 Console.WriteLine(" ");
@@ -118,6 +118,194 @@ student[] students = new student[] {
     new student {firstname = "", lastname = ""}
 };
 Console.WriteLine(students.GetType().ToString());
+
+//value and reference types:
+//possible to cast string to object both are reference types
+
+int[] numberss = { 10, 20 };
+//object[] objectNumbers = numberss; // not possible to cast int[] to object[]
+
+string[] names = { "A", "B" };
+object[] objects = names; // possible to cast string[] to object[], both are reference types
+Console.WriteLine(" ");
+Console.WriteLine("cast string[] to object[]: ");
+Console.WriteLine(objects[0] + " " + objects[1]);
+
+//Compile time - eorror
+//Run time - exception
+
+int? i = null;
+Nullable<int> i1 = null;
+int j = i ?? 0;
+
+int? nullableResult = i + j;
+int nonnullableResult = (i + j) ?? 0;
+
+Console.WriteLine(" ");
+if (i.HasValue)
+{
+    Console.Write("Has value or not: " + i);
+}
+
+Console.WriteLine("NUM: ");
+var num = new int[] { 1, 3, 5 ,3 ,6 ,4, 2 };
+foreach(var a in num)
+{
+    Console.Write(a + ", ");
+}
+
+//avoid indexing
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+Console.WriteLine("System.Linq Liberary Func: ");
+Console.WriteLine(" ");
+Console.WriteLine("First " + num.First());
+Console.WriteLine("With Default " + num.FirstOrDefault());
+Console.WriteLine("Last " + num.Last());
+Console.WriteLine("With Default " + num.LastOrDefault());
+Console.WriteLine("Element At " + num.ElementAt(2));
+Console.WriteLine("Or Default " + num.ElementAtOrDefault(2));
+
+try
+{ Console.WriteLine(num.Single()); }
+catch (Exception ex)
+{ Console.WriteLine("Exception: " + ex.Message); }
+
+try
+{ Console.WriteLine(num.SingleOrDefault()); }
+catch (Exception ex)
+{ Console.WriteLine("Exception: " + ex.Message); }
+
+//avoid duplicate
+Console.WriteLine(" ");
+Console.WriteLine("Distinct: ");
+var distinctNum = num.Distinct();
+foreach (var n in distinctNum)
+{
+    Console.Write(n +", "); 
+}
+
+Console.WriteLine(" ");
+Console.WriteLine("Aggregate Function: ");
+
+Console.WriteLine("Sum " + num.Sum());
+Console.WriteLine("Avg " + num.Average());
+Console.WriteLine("Count " + num.Count()); //method
+Console.WriteLine("Length " + num.Length); //property
+
+//when it go beyond int32
+Console.WriteLine("Long Count " + num.LongCount());
+Console.WriteLine("Long Length " + num.LongLength);
+
+Console.WriteLine("Max " + num.Max());
+Console.WriteLine("Min " + num.Min());
+
+Console.WriteLine("Contains " + num.Contains(6));
+
+Console.WriteLine(" ");
+Console.WriteLine("Concat like string but list ");
+var ConcatNum = num.Concat(new int[] { 6,8,9 });
+foreach (var n in ConcatNum)
+{
+    Console.Write(n + ", ");
+}
+
+Console.WriteLine(" ");
+//lambda
+var var1 = num.Aggregate((a,b)=>a+b);
+Console.WriteLine("Lambda Aggregate "+var1);
+
+var num2 = ConcatNum.Concat(new int[] {10,0});
+
+Console.WriteLine(" ");
+Console.WriteLine("Union: ");
+var var2 = num.Union(num2);
+foreach(var o in var2)
+{ Console.Write(o + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Intersect: ");
+var var3 = var2.Intersect(new int[] {4,3});
+foreach(var p in var3)
+{ Console.Write(p + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Except: ");
+var var4 = var2.Except(new int[] {1,7});
+foreach(var k in var4)
+{ Console.Write(k + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Take: ");
+var var5 = var2.Take(4);
+foreach (var n in var5)
+{ Console.Write(n + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Skip: ");
+var var6 = var2.Skip(4);
+foreach (var b in var6)
+{ Console.Write(b + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Range ");
+var var7 = Enumerable.Range(20,10);
+foreach (var f in var7)
+{ Console.Write(f + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Repeat ");
+var var8 = Enumerable.Repeat(10,5);  
+foreach (var d in var8)
+{ Console.Write(d + ", "); }
+
+// takewhile skipwhile takelast skiplast
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+Console.WriteLine("TakeWhile ");
+var var9 = num.TakeWhile(num => num >= 3);
+foreach (var f in var9)
+{ Console.Write(f + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("SkipWhile ");
+var var10 = num.SkipWhile(num => num <= 3);
+foreach (var f in var10)
+{ Console.Write(f + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("Takelast ");
+var var11 = num.TakeLast(2);
+foreach (var f in var11)
+{ Console.Write(f + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine("SkipLast ");
+var var12 = num.SkipLast(3);
+foreach (var f in var12)
+{ Console.Write(f + ", "); }
+
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+Console.WriteLine("NUMBER: ");
+var number = new int[] { 1,2,3,4,3,2,1 };
+foreach (var a in number)
+{
+    Console.Write(a + ", ");
+}
+
+Console.WriteLine(" ");
+var v1 = number.Distinct();
+foreach (var n in v1)
+{
+    Console.Write(n + ", ");
+}
+
+Console.WriteLine(" ");
+var v2 = number.Intersect(v1);
+foreach (var k in v2)
+{ Console.Write(k + ", "); }
+
 
 class student
 {

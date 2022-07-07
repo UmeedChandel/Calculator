@@ -68,4 +68,21 @@ namespace structLiberary
     public delegate int ItsDelegate(int exp1, int exp2);
     public delegate void ItsDelegate1(int exp1);
 
+    /*
+     
+     Action Delegate - wont return any value(16para)
+   
+        public delegate void Action<in T>(T obj);
+   
+    Perdicate Delegate -accept para return boolean
+    
+        public delegate bool Predicate<in T>(T obj);
+    Function Delegate - accept para(16) return value(1)
+   
+        public delegate void Function<in T>(T obj); 
+    
+     */
+   
+
+
 }

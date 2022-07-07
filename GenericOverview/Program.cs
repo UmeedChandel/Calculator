@@ -1,66 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Concurrent;
 
-//Non-Generic Stack
-
-Stack intNonGenericStack = new Stack();// creating object for non-generic stack
-intNonGenericStack.Push(10); // pushing elements, boxing - int -> object then stored inside stack
-intNonGenericStack.Push(20);
-intNonGenericStack.Push(30);
-intNonGenericStack.Push(new Student()); // it is allowed, no compile time type checking, because it accepts as object.
-
-Console.WriteLine("Non-Generic Stack");
-//Console.WriteLine((int?)intNonGenericStack.Pop()); //pop up elements from stack, unbox your elements
-Console.WriteLine(intNonGenericStack.Pop());
-Console.WriteLine(intNonGenericStack.Pop());
-Console.WriteLine(intNonGenericStack.Pop());
-
-
-Stack stringNonGenericStack = new Stack();
-
-intNonGenericStack = stringNonGenericStack; // it is allowed, syntactically correct, but throws run time error
-
-List<Student> studentList = new List<Student>();
-
-ArrayList object1 = new ArrayList();
-
-int i = 10;
-
-int j = i;
-
-//Stack intNonGenericStack = new Stack();
-
-Stack<int> intStack = new Stack<int>(); //creating object for generic stack and it is integer version,
-                                        //allows only integer, no boxing and unboxing, compile time validation
-intStack.Push(100);
-//intStack.Push("string");//compilatin time itself generics throws error, compile time type checking.
-intStack.Push(20);
-intStack.Push(30);
-
-Console.WriteLine("Int version of Generic Stack");//unboxing, no explicit casting.
-Console.WriteLine(intStack.Pop());
-Console.WriteLine(intStack.Pop());
-Console.WriteLine(intStack.Pop());
-
-
-Stack<string> stringStack = new Stack<string>();
-stringStack.Push("Shraddha");
-stringStack.Push("Shashwat");
-stringStack.Push("Shreya");
-stringStack.Push("Shriya");
-stringStack.Push("Siddarth");
-stringStack.Push("Simran");
-stringStack.Push("Sneha");
-stringStack.Push("Sriram");
-stringStack.Push("Saurabh");
-
-
-Stack<Student> studentStack = new Stack<Student>();
-studentStack.Push(new Student());
-
-
-//intStack = stringStack; // compiler error, not possible, they are 2 identical versions, even though object of same class.
-
 Console.WriteLine("Named Parameters and Optional Arguments");
 
 int result = ArithmeticOperations.Add(10, 20);
@@ -81,6 +21,9 @@ Queue<string> stringQueue = new Queue<string>();   //thread-safe
 
 ConcurrentQueue<int> concurrentQueue = new ConcurrentQueue<int>(); //thread-safe
 
+Console.WriteLine(" ");
+Console.WriteLine("Lambda Function");
+
 List<Task> tasks = new List<Task>();
 
 //lamda function
@@ -99,103 +42,6 @@ var numbers = new[] { 10, 25, 5, 87, 3, 5 };
 int resulttt = numbers.OrderByDescending(n => n).ElementAt(2);
 Console.WriteLine(resulttt);
 
-
-Print print = new Print();
-print.PrintData<int>(10);
-print.PrintData<string>("Hello GL");
-
-
-GenArithmeticDelegate<int> genArithmeticDelegate = new GenArithmeticDelegate<int>(ArithmeticOperations.Add);
-int genResult = genArithmeticDelegate.Invoke(10, 10);
-
-
-
-
-
-NonGen nonGen = new NonGen(10);
-int value = (int)nonGen.GetOb();
-nonGen.ShowType();
-/*
-Gen<int> intGen = new Gen<int>(100);
-int genValue = intGen.GetOb();*/
-
-
-
-
-NonGen nonGen1 = new NonGen(10);
-int value123 = (int)nonGen1.GetOb(); //typecasting
-
-
-//when you are creating object for your generic class, you have pass concrete type - primitive types or user defined types
-Gen<int> intGen = new Gen<int>(100);
-int genResult123 = intGen.GetOb();
-
-Gen<double> doubleGen = new Gen<double>(500);
-double doubleResult123 = doubleGen.GetOb();
-
-/*class Print<T>{
- 
- public void PrintData(int item)
-    {
-        Console.WriteLine(item);
-    }
-  
- public void PrintData<T>(T item)
-{
-    Console.WriteLine(item);
-}
-}*/
-
-
-Print print123 = new Print();
-//print123.PrintData(10);
-print123.PrintData<int>(10);
-print123.PrintData<double>(1000);
-
-
-/*class GenClass<T>
-{
-    public int Add(int a, int b)
-    {
-        return a + b;
-    }
-
-    public void Print<V>(V item)
-    {
-        Console.WriteLine(item);
-    }
-
-}
-*/
-
-GenClass<string> stringGenClass = new GenClass<string>();
-stringGenClass.Print<double>(10);
-stringGenClass.Print("");
-stringGenClass.Add(10, 10);
-
-
-
-
-
-MyStore<int> myStoreObject = new MyStore<int>();
-myStoreObject.AddElement(10);
-var element = myStoreObject.GetElement(0);
-
-MyStore<string> myStoreStringVersion = new MyStore<string>();
-myStoreStringVersion.AddElement("Hello My Guys");
-var elementAsString = myStoreStringVersion.GetElement(0);
-
-
-/*public class GenCompare<T>
-{
-    public static bool AreEqual(T value1, T value2)
-    {
-        return value1.Equals(value2);
-    }
-}*/
-
-GenCompare<int>.AreEqual(10, 10);
-GenCompare<string>.AreEqual("Good", "Good");
 
 //base class
 GenA<Aishwarya> genA = new GenA<Aishwarya>();
@@ -311,31 +157,6 @@ class Gen<T>
 //Generic struct, class, interface, delegate and methods
 
 //Non Generic class with Generic method
-class Print
-{
-    //Mulitiple versions for different types of data
-
-    //One version will handle most of the types of data
-    public void PrintData<T>(T item)
-    {
-        Console.WriteLine(item);
-    }
-}
-
-//Generic class with non-generic and generic methods
-class GenClass<T>
-{
-    public int Add(int a, int b)
-    {
-        return a + b;
-    }
-
-    public void Print<V>(V item)
-    {
-        Console.WriteLine(item);
-    }
-
-}
 
 //Generic abstract class
 public abstract class AbsRemove<T>
@@ -344,7 +165,6 @@ public abstract class AbsRemove<T>
 }
 
 //Generic Interface
-//{10,20,30,40,50 }
 interface IMyStore<T>
 {
     void AddElement(T item);
@@ -457,7 +277,6 @@ public class ArithmeticOperationsss
         return a - b;
     }
 }
-
 
 //Perfect scenario for comparing - using object
 public class CompareObjects

@@ -284,27 +284,48 @@ Console.WriteLine("SkipLast ");
 var var12 = num.SkipLast(3);
 foreach (var f in var12)
 { Console.Write(f + ", "); }
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+
+Console.WriteLine("=======List Query======");
+
+List<int> numbers = new() { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+int countNum = 0;
+numbers.Sort();
+var NumQuery1 = numbers.Where(n => (n < 3 || n > 8));
+Console.WriteLine(" ");
+Console.WriteLine("1. filter the number < 3 and >8: ");
+foreach (var item in NumQuery1)
+{
+    Console.Write(item + " ");
+    countNum++;
+}
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+Console.WriteLine("2. how many numbers are <3 and > 8 in above lists: " + countNum);
 
 Console.WriteLine(" ");
-Console.WriteLine(" ");
-Console.WriteLine("NUMBER: ");
-var number = new int[] { 1,2,3,4,3,2,1 };
-foreach (var a in number)
+Console.WriteLine("3. find out all the even numbers: ");
+var NumQuery2 = numbers.Where(num => num % 2 == 0);
+foreach (var item in NumQuery2)
 {
-    Console.Write(a + ", ");
+    Console.Write(item + " ");
+}
+Console.WriteLine(" ");
+Console.WriteLine(" ");
+Console.WriteLine("Sorted List ");
+numbers.Sort();
+foreach (var item in numbers)
+{
+    Console.Write(item + " ");
 }
 
 Console.WriteLine(" ");
-var v1 = number.Distinct();
-foreach (var n in v1)
-{
-    Console.Write(n + ", ");
-}
-
 Console.WriteLine(" ");
-var v2 = number.Intersect(v1);
-foreach (var k in v2)
-{ Console.Write(k + ", "); }
+Console.WriteLine("4. find the 3rd highest: {0}  and 4th lowest: {1}",
+    numberss.TakeLast(3).FirstOrDefault(),
+    numberss.Skip(3).FirstOrDefault());
 
 
 class student

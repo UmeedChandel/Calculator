@@ -29,6 +29,7 @@ var stu2 = new { Fname = "", Lname = "" };
 var stu3 = new List<Student> {
 new Student {Fname= "Sriram" , Lname ="" , Age = 21 ,Gender='M'},
 new Student {Fname= "Sneha" , Lname ="Sinha", Age = 22 ,Gender='F' },
+new Student {Fname= "Umeed" , Lname ="Chandel", Age = 21 ,Gender='F'},
 new Student {Fname= "Simran" , Lname ="Singh", Age = 21 ,Gender='F' },
 new Student {Fname= "Subhash" , Lname ="Gurjar", Age = 22 ,Gender='M'},
 new Student {Fname= "Umeed" , Lname ="Chandel", Age = 21 ,Gender='F'}
@@ -71,7 +72,17 @@ var stu5 = new[] {
     new Student{Fname="Saurabh",Lname="Kumar",Age=21, Gender='M' },
     new Student{Fname="Tisha",Lname="Varshney",Age=20, Gender='F' },
     new Student{Fname="Aman",Lname="Asati",Age=21, Gender='M' },
-    new Student{Fname="Aman",Lname="Asati",Age=21, Gender='M'}
+    new Student{Fname="Aman",Lname="Asati",Age=21, Gender='M'},
+    new Student{Fname="Amara",Lname="Sriram",Age=21, Gender='M' },
+    new Student{Fname="Muskan",Lname="Muskan",Age=20, Gender='F' },
+    new Student{Fname="Rahul",Lname="Yadav",Age=21, Gender='M' },
+    new Student{Fname="Shraddha",Lname="Shraddha",Age=20, Gender='F' },
+    new Student{Fname="Aishwarya",Lname="Verma",Age=20, Gender='F' },
+    new Student{Fname="Shreya",Lname="",Age=20, Gender='F' },
+    new Student{Fname="Nandhita",Lname="",Age=20, Gender='F' },
+    new Student{Fname="Shashwat",Lname="Shukla",Age=20, Gender='M' },
+    new Student{Fname="Siddarth",Lname="",Age=21, Gender='M' },
+    new Student{Fname="Shriya",Lname="Porwal",Age=20, Gender='F' },
 };
 
 Console.WriteLine("=======Distinct=======");
@@ -161,6 +172,86 @@ foreach (var item in q7)
 {
     Console.WriteLine(item.ToString());
 }
+
+Console.WriteLine("===============Query===============");
+Console.WriteLine(" ");
+Console.WriteLine("1. name starts with 'S' ");
+var q8 = stu35.Where(s => s.Fname.ToUpper().StartsWith('S')).Select(s => new { s.Fname });
+foreach (var item in q8)
+{
+    Console.WriteLine(item);
+}
+Console.WriteLine(" ");
+Console.WriteLine("2. Who are all with empty lastname ");
+var q9 = stu35.Where(s => s.Lname == "");
+foreach (var item in q9)
+{
+    Console.WriteLine(item.ToString());
+}
+Console.WriteLine(" ");
+Console.WriteLine("3. only Gender = 'M' and order by firstname ");
+var q10 = stu35.Where(s => s.Gender == 'M').OrderBy(s => s.Fname);
+foreach (var item in q10)
+{
+    Console.WriteLine(item.ToString());
+}
+Console.WriteLine(" ");
+Console.WriteLine("4. filter students from Stu3 and Stu5 and Age 21 ");
+var q11 = stu35.Where(s => ((s.Age == 21) && s.Gender == 'F'));
+foreach (var item in q11)
+{
+    Console.WriteLine(item.ToString());
+}
+Console.WriteLine(" ");
+Console.WriteLine("5. male students count in each age group ");
+var q12 = stu35.GroupBy(student => student.Age);
+foreach (var group in q12)
+{
+    Console.Write(group.Key + " => Age Bracket Count ");
+
+    var maleStudents = group.Where(student => student.Gender == 'M');
+    Console.WriteLine("Male Count: " + maleStudents.Count());
+
+}
+Console.WriteLine(" ");
+Console.WriteLine("6. female students count in each age group ");
+var q13 = stu35.GroupBy(student => student.Age);
+foreach (var group in q13)
+{
+    Console.Write(group.Key + " => Age Bracket Count ");
+
+    var femaleStudents = group.Where(student => student.Gender == 'F');
+    Console.WriteLine("Female Count: " + femaleStudents.Count());
+}
+Console.WriteLine(" ");
+Console.WriteLine("7. take students between 6 to 12 and who are all having age = 20 and show their firstname and lastname ");
+var q14 = stu5.Take(new Range(6, 12)).Where(s => s.Age == 20).Select(s => new { s.Fname, s.Lname });
+foreach (var item in q14)
+{
+    Console.WriteLine(item);
+}
+Console.WriteLine(" ");
+Console.WriteLine("8. print all the students firstname and age ");
+var q15 = stu35.Select(s => new { s.Fname, s.Age });
+foreach (var item in q15)
+{
+    Console.WriteLine(item.ToString());
+}
+Console.WriteLine(" ");
+Console.WriteLine("9. how many students are having age 21 print their name and age ");
+var q16 = stu35.Where(student => student.Age == 21).Select(s => new { s.Fname, s.Age });
+foreach (var item in q16)
+{
+    Console.WriteLine(item.ToString());
+}
+Console.WriteLine(" ");
+Console.WriteLine("10. filter students first name starts with P T & N ");
+var q17 = stu35.Where(s => (s.Fname.ToUpper().StartsWith('P') || s.Fname.ToUpper().StartsWith('T') || s.Fname.ToUpper().StartsWith('N'))).Select(s => new { s.Fname });
+foreach (var item in q17)
+{
+    Console.WriteLine(item);
+}
+
 
 public class StudentEqualityComparer : IEqualityComparer<Student>
 {

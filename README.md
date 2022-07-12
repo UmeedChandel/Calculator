@@ -9,3 +9,10 @@ As a Trainee Software Engineer, Engineering
 Starting Date 20th June 2022
 
 Joined on 15th June 2022
+
+Week 1-3 C# Topics: 
+* Methods Properties 
+* OOPM Concepts & Data-Types
+* Class Delegate Interfaces
+* Generic and Collections
+* Language Integrated Query (LINQ)
